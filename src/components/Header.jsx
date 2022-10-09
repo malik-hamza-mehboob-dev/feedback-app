@@ -21,11 +21,4 @@ Header.defaultProps = {
     textColor : '#ff6a95'
 }
 
-const Styles = {
-    headerStyles:{
-        
-    }
-}
-
-
 export default Header       

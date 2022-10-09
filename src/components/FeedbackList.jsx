@@ -1,10 +1,10 @@
 import FeedbackItem from './FeedbackItem'
 import propTypes from 'prop-types'
 
-function FeedbackList({feedback}) {
+function FeedbackList({feedback, handleClick}) {
     if(!feedback || feedback.length === 0) { return <p>No Feedback yet!</p>}
   return (
-    feedback.map((item) => (<FeedbackItem key={item.id} item={item} />))
+    feedback.map((item) => (<FeedbackItem key={item.id} item={item} handleClick={handleClick} />))
   )
 }
 
