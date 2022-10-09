@@ -5,7 +5,6 @@ function Header({text , bgColor , textColor}) {
         backgroundColor : bgColor,
         color : textColor,
     }
-    console.log(headerStyles);
   return (
     <header style={headerStyles}>
         <div className="container">

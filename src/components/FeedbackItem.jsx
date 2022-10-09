@@ -1,14 +1,12 @@
-import { useState } from 'react'
- 
-function FeedbackItem() {
-    const [rating, setRating] = useState(7);
-    const [feedback, setFeedback] = useState('This is an example text')
+import Card from "./shared/Card"
 
+function FeedbackItem({item}) {
+    
   return (
-    <div className="card">
-        <div className="num-display">{rating}</div>
-        <div className="text-display">{feedback}</div>
-    </div>
+    <Card>
+        <div className="num-display">{item.rating}</div>
+        <div className="text-display">{item.feedback}</div>
+    </Card>
   )
 }
 
