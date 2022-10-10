@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from "./components/Header";
 import Data from './data/FeedbackData'
 import FeedbackList from "./components/FeedbackList";
+import FeedbackStats from "./components/FeedbackStats";
 
 export default function App() {
   const [feedbackData, setFeedbackData] = useState(Data);
@@ -15,8 +16,9 @@ export default function App() {
   }
   return (
     <>
-        <Header text="hello" />
+        <Header text="Feedback UI" />
         <div className='container'>
+            <FeedbackStats feedback={feedbackData} />
             <FeedbackList feedback={feedbackData} handleClick={deleteFeedback}/>
         </div>
     </>
