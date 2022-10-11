@@ -3,7 +3,7 @@ import RatingSelect from "./RatingSelect";
 import Button from "./shared/Button";
 import Card from "./shared/Card"
 
-function FeedbackForm() {
+function FeedbackForm({feedbackAdd}) {
     const [text, setText] = useState('');
     const [rating, setRating] = useState(10);
     const [message, setMessage] = useState('');
@@ -21,11 +21,25 @@ function FeedbackForm() {
         }
         setText(e.target.value);
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(text.trim().length > 10){
+            let newFeedback = {
+                id: Math.random(1,9999),
+                feedback: text,
+                rating
+            }
+
+            feedbackAdd(newFeedback);
+
+            setText('');
+        }
+    }
   return (
     <Card>
-        <form>
+        <form onSubmit={handleSubmit}>
             <h2>How you rate your service with us?</h2>
-            {/* rating select component */}
             <RatingSelect rating={(rating => setRating(rating))} />
             <div className="input-group">
                 <input onChange={handleTextChange} type="text" placeholder="Write a review" value={text}/>
