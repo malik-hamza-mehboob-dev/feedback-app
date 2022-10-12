@@ -25,8 +25,8 @@ export default function App() {
         <Header text="Feedback UI" />
         <div className='container'>
             <FeedbackForm feedbackAdd={handleAdd} />
-            <FeedbackStats feedback={feedbackData} />
-            <FeedbackList feedback={feedbackData} handleClick={deleteFeedback}/>
+            <FeedbackStats />
+            <FeedbackList handleClick={deleteFeedback}/>
         </div>
     </FeedbackProvider>
   )
