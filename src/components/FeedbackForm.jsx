@@ -40,7 +40,6 @@ function FeedbackForm() {
         e.preventDefault();
         if(text.trim().length > 10){
             let newFeedback = {
-                id: Math.random(1,9999),
                 feedback: text,
                 rating
             }
