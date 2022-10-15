@@ -10,12 +10,14 @@ function FeedbackForm() {
     const [rating, setRating] = useState(10);
     const [message, setMessage] = useState('');
     const [btnDisabled, setBtnDisabled] = useState(true);
+    const [btnText, setBtnText] = useState('send')
 
     const {addFeedback, feedbackEdit, updateFeedback} = useContext(FeedbackContext);
 
     useEffect(() => {
         if(feedbackEdit.edit){
             setBtnDisabled(false);
+            setBtnText('update');
             setText(feedbackEdit.item.feedback);
             setRating(feedbackEdit.item.rating);
         }
@@ -51,6 +53,8 @@ function FeedbackForm() {
             }
 
             setText('');
+            setBtnText('send');
+            setBtnDisabled(true);
         }
     }
   return (
@@ -60,7 +64,7 @@ function FeedbackForm() {
             <RatingSelect rating={(rating => setRating(rating))} />
             <div className="input-group">
                 <input onChange={handleTextChange} type="text" placeholder="Write a review" value={text}/>
-                <Button type='submit' isDisabled={btnDisabled}>Send</Button>
+                <Button type='submit' isDisabled={btnDisabled}> {btnText} </Button>
             </div>
             <div className="message">{message}</div>
         </form>
